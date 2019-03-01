@@ -7,5 +7,5 @@ import com.illud.contact.model.Contact;
 
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Long>{
-
+	
 }
