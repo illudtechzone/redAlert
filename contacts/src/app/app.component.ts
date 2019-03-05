@@ -1,3 +1,4 @@
+import { Contact } from './api/models/contact';
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';

@@ -8,6 +8,14 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  application:
+     name: Contact
 
 server:
   port: 8085
+  servlet:
+     context-path: /Contact
+  
+logging:
+   level:
+      com.illud.contact: DEBUG
