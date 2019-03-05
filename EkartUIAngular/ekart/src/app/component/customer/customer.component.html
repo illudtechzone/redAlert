@@ -1,0 +1,97 @@
+<ul   class="navbar-nav">
+  <li class="nav-item">
+    <a [hidden]="isLogged" class="nav-link" #signinBtn >Sign In</a>
+  </li>  
+  <li class="nav-item">
+      <a [hidden]="isLogged" class="nav-link" #signupBtn>Sign Up</a>
+  </li>  
+  <li class="nav-item">
+      <a [hidden]="!isLogged" class="nav-link">Customer Name and DropDown</a>
+    </li>  
+</ul>
+
+<form (ngSubmit)="onSubmit()" id="rForm"></form>
+<form (ngSubmit)="onLogin()" id="lForm"></form>
+
+<div class="card form" id="RegisterForm" #signupTab>
+  <div class="card-block">
+
+      <!--Header-->
+      <div class="form-header blue-gradient">
+          <h3><i class="fa fa-user"></i> Register:</h3>
+      </div>
+
+      <!--Body-->
+      <div class="md-form">
+          <i class="fa fa-user prefix"></i>
+          <input type="text" form="rForm" class="form-control"  placeholder="Name" [(ngModel)]="customer.name" name="name" #name="ngModel">
+      </div>
+
+      <div class="md-form">
+          <i class="fa fa-envelope prefix"></i>
+          <input type="text" form="rForm" class="form-control" placeholder="Email" [(ngModel)]="customer.email" name="email" #email="ngModel">
+      </div>
+
+      <div class="md-form">
+        <i class="fa fa-envelope prefix"></i>
+        <input type="text" form="rForm" class="form-control" placeholder="Number" [(ngModel)]="customer.number" name="number" #number="ngModel">
+    </div>
+
+
+    <div class="md-form">
+      <i class="fa fa-envelope prefix"></i>
+      <input type="text" form="rForm" class="form-control" placeholder="Username" [(ngModel)]="customer.username" name="username" #username="ngModel">
+  </div>
+
+      <div class="md-form">
+          <i class="fa fa-lock prefix"></i>
+          <input type="password" form="rForm" class="form-control" placeholder="Password" [(ngModel)]="customer.password" name="password" #password="ngModel"/>
+      </div>
+
+      <div class="text-center">
+          <button class="btn btn-indigo" form="rForm">Sign up</button>
+          <hr>
+          <fieldset class="form-group">
+              <input type="checkbox" id="checkbox1">
+              <label for="checkbox1">Subscribe me to the newsletter</label>
+          </fieldset>
+      </div>
+
+  </div>
+</div>
+<!--/Form with header-->
+
+<div class="card form" id="LoginForm" #signinTab>
+  <div class="card-block">
+      <!--Header-->
+      <div class="form-header  purple darken-4">
+          <h3><i class="fa fa-lock"></i> Login:</h3>
+      </div>
+
+      <!--Body-->
+      <div class="md-form">
+          <i class="fa fa-user prefix"></i>
+          <input type="text" id="form2" placeholder="Username" class="form-control" [(ngModel)]="customer.username" name="username" #username="ngModel">
+      </div>
+
+      <div class="md-form">
+          <i class="fa fa-lock prefix"></i>
+          <input type="password" id="form4"  placeholder="Password" class="form-control" [(ngModel)]="customer.password" name="password" #password="ngModel">
+      </div>
+
+      <div class="text-center">
+          <button class="btn btn-deep-purple">Login</button>
+      </div>
+
+  </div>
+
+  <!--Footer-->
+  <div class="modal-footer">
+      <div class="options">
+          <p>Not a member? <a href="#">Sign Up</a></p>
+          <p>Forgot <a href="#">Password?</a></p>
+      </div>
+  </div>
+
+</div>
+<!--/Form with header-->

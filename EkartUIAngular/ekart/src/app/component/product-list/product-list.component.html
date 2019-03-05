@@ -1,0 +1,46 @@
+
+<app-category-list  (valueUpdate)="getUpdatedProducts($event)"></app-category-list>
+
+<div class="col">
+    <div class="row mt-5">
+    
+      <div class="col">
+
+        <div class="row">
+              
+
+              <div  *ngFor="let product of products" class="product-grid" (click)="getUpdatedProduct(product.id)">
+                <div class="product-image">
+                    <a>
+                        <img class="pic-1" src="assets/img/no-image.png">
+                        <img class="pic-2" src="">
+                    </a>
+                    <ul class="social">
+                        <li><a  data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    <span class="product-new-label">Sale</span>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star disable"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">{{product.name}}</a></h3>
+                    <div class="price">{{product.price}}
+                    </div>
+                    <a class="add-to-cart" >+ Add To Cart</a>
+                </div>
+            </div>
+            </div>
+  
+      </div>
+
+    </div>
+  
+</div>
+
+<app-product-detail (eventEmitter)="recieveProductDetailClose()" [isHidden]="isHiddenProductDetail"
+[product]="product" ></app-product-detail>

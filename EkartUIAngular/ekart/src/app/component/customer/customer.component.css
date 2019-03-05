@@ -1,0 +1,25 @@
+.form {
+
+    background: rgb(248, 247, 247);
+    display: none;
+    width: 400px;
+    position: fixed;
+    left:50%;
+    top:10%;
+    transform: translate(-50%, 0);
+    padding:10px;
+    padding-top: 20px;
+    z-index: 2;
+
+}
+
+.form-header {
+    padding: 10px;
+}
+
+#RegisterForm {
+
+   
+}
+#LoginForm {
+}

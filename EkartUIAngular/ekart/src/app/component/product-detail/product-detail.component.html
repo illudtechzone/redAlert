@@ -1,0 +1,30 @@
+<div [hidden]="isHidden" id="productDetailBox" [@openClose]="isHidden?'close':'open'" >
+
+  <div *ngIf="product" class="row p-5 " style="height:80%">
+    <div class="col-4" id="product-img">
+        <img class="pic-1" src="assets/img/no-image.png">
+        <img class="pic-2" src="">
+    </div>
+
+    <div class="col-8" id="product-details">
+       <div class="mb-4">
+          <h2> Name : {{ product.name}}</h2>
+       </div>
+       <div>
+          <h4> Description</h4>
+          <p> {{product.description}}</p>
+
+       </div>
+        <p> price : {{product.price}}</p>    
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col" style="text-align: center">
+        <button class="btn btn-primary" (click)="sendCloseEvent()" >Close me</button>
+    </div>
+    <div class="col"  style="text-align: center">
+        <button class="btn btn-primary" >Add to Cart</button>
+    </div>
+  </div>
+</div>
