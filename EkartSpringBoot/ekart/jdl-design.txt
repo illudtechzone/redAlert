@@ -1,0 +1,72 @@
+
+	ADMIN Point Of View
+	-------------------
+
+		************** GET Requests **********
+
+			GET "/products"  	     entity ProductDTO -> [ field ( shopId , shopName ) ]
+			GET "/products/{id}"  	 entity ProductDTO -> [ field ( shopId , shopName ) ]
+
+			GET "/categories"	 	 entity CategoryDTO -> [ entity ( ProductDTO ) ] 
+			GET "/categories/{id}"	 entity CategoryDTO -> [ entity ( ProductDTO ) ] 
+
+			GET "/shops"			 entity ShopDTO -> [ field ( sellerId , sellerName ) , entity  ( ProductDTO ) ]
+			GET "/shops/{id}"		 entity ShopDTO -> [ field ( sellerId , sellerName ) , entity  ( ProductDTO ) ]
+
+			GET "/address"			 entity AddressDTO   
+			GET "/address/{id}"		 entity AddressDTO	   
+
+			GET "/sellers"		 	 entity SellerDTO -> [ AddressDTO ]
+			GET "/sellers/{id}"		 entity SellerDTO -> [ AddressDTO ]
+
+
+ 		************** Post Requests *************
+
+
+			POST "/products"	entity ProductDTO -> [ field ( shopId , shopName ) ]
+
+			POST "/categories"	entity Category -> [ entity ( Product ) ] 
+
+			POST "/shops"		entity Shop -> [ entity  ( Seller , Product ) ]
+
+			POST "/addresses"	entity Address
+
+			POST "/sellers"		entity Seller -> [ Address ]
+
+
+	User Point of View ( Member -> Customer )
+	---------------------------
+
+		Allowed
+		-------
+
+		************** GET Requests **********
+
+			GET "Ekart/api/products/"  -> Getting all the products
+
+			GET "Ekart/api/categories/{category_id}  -> Getting all the products in the category with id
+
+			GET "Ekart/api/customers/{your_id}" -> See Your Details
+
+			GET "Ekart/api/sellers -> View Seller Info like Addresses , name , rating
+
+ 		************** Post Requests *************
+
+			POST "Ekart/api/customers	-> Signup for a Customer Account
+
+			POST "Ekart/api/addresses -> After Signup Add your addresses
+
+	
+		Blocked
+		-------
+
+		************** GET Requests **********
+
+			GET "Ekart/api/customers  ->  Not Allowed to see Other Customers Details
+
+			GET "Ekart/api/addresses  ->  Not Allowed to Get all the Addresses
+			
+			GET "Ekart/api/addresses/{id}  ->  Not Allowed to Get Address via an id
+
+
+
