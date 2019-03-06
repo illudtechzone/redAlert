@@ -16,14 +16,19 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+      title: 'News',
+      url: '/news',
+      icon: 'paper'
     },
     {
       title: 'History',
       url: '/history',
       icon: 'time'
+    },
+    {
+      title: 'Friends',
+      url: '/friends',
+      icon: 'people'
     }
   ];
 
