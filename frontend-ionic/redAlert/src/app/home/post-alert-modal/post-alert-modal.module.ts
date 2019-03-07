@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HistoryPage } from './history.page';
-import { NavbarPageModule } from '../navbar/navbar.module';
+import { PostAlertModalPage } from './post-alert-modal.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HistoryPage
+    path: '/postAlert',
+    component: PostAlertModalPage
   }
 ];
 
@@ -20,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    NavbarPageModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HistoryPage]
+  declarations: [PostAlertModalPage]
 })
-export class HistoryPageModule {}
+export class PostAlertModalPageModule {}

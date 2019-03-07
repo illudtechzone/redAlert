@@ -1,3 +1,4 @@
+import { NavbarPageModule } from './../navbar/navbar.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -5,13 +6,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HistoryPage } from './history.page';
-import { NavbarPageModule } from '../navbar/navbar.module';
+import { FriendsPage } from './friends.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HistoryPage
+    component: FriendsPage
   }
 ];
 
@@ -20,9 +20,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    NavbarPageModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NavbarPageModule
   ],
-  declarations: [HistoryPage]
+  declarations: [FriendsPage]
 })
-export class HistoryPageModule {}
+export class FriendsPageModule {}
