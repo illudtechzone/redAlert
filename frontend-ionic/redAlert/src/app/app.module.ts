@@ -1,3 +1,4 @@
+import { NavbarComponent } from './navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -10,7 +11,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavbarComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
