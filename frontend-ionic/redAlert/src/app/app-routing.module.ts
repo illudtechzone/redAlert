@@ -22,7 +22,9 @@ const routes: Routes = [
   {
     path: 'friends',
     loadChildren: './friends/friends.module#FriendsPageModule'
-  }
+  },
+  { path: 'post', loadChildren: './post/post.module#PostPageModule' }
+
 ];
 
 @NgModule({
