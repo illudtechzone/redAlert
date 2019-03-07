@@ -1,3 +1,4 @@
+import { NavbarPageModule } from './../navbar/navbar.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -5,13 +6,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HistoryPage } from './history.page';
-import { NavbarPageModule } from '../navbar/navbar.module';
+import { NewsPage } from './news.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HistoryPage
+    component: NewsPage
   }
 ];
 
@@ -23,6 +23,6 @@ const routes: Routes = [
     NavbarPageModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HistoryPage]
+  declarations: [NewsPage]
 })
-export class HistoryPageModule {}
+export class NewsPageModule {}

@@ -15,6 +15,14 @@ const routes: Routes = [
     path: 'history',
     loadChildren: './history/history.module#HistoryPageModule'
   },
+  {
+    path: 'news',
+    loadChildren: './news/news.module#NewsPageModule' 
+  },
+  {
+    path: 'friends',
+    loadChildren: './friends/friends.module#FriendsPageModule'
+  },
   { path: 'post', loadChildren: './post/post.module#PostPageModule' }
 
 ];

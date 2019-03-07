@@ -5,24 +5,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HistoryPage } from './history.page';
-import { NavbarPageModule } from '../navbar/navbar.module';
+import { NavbarPage } from './navbar.page';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: HistoryPage
-  }
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NavbarPageModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HistoryPage]
+  declarations: [NavbarPage],
+  exports: [NavbarPage]
 })
-export class HistoryPageModule {}
+export class NavbarPageModule {}
