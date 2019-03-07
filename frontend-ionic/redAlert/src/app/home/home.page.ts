@@ -1,6 +1,6 @@
 import { ModalController } from '@ionic/angular';
 import { Component } from '@angular/core';
-import { PostAlertModalPage } from './post-alert-modal/post-alert-modal.page';
+import { PostAlertModalPage } from '../post-alert-modal/post-alert-modal.page';
 
 @Component({
   selector: 'app-home',

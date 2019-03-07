@@ -21,6 +21,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [PostAlertModalPage]
+  declarations: [PostAlertModalPage],
+  exports: [PostAlertModalPage]
 })
 export class PostAlertModalPageModule {}

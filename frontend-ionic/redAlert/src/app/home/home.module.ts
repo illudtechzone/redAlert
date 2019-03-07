@@ -1,4 +1,3 @@
-import { PostAlertModalPageModule } from './post-alert-modal/post-alert-modal.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -7,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { NavbarPageModule } from '../navbar/navbar.module';
+import { PostAlertModalPageModule } from '../post-alert-modal/post-alert-modal.module';
 
 @NgModule({
   imports: [
