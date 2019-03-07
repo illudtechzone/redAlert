@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path: 'history',
     loadChildren: './history/history.module#HistoryPageModule'
-  }
+  },
+  { path: 'post', loadChildren: './post/post.module#PostPageModule' }
 
 ];
 
