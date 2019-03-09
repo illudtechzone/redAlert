@@ -14,6 +14,12 @@
     <ion-label position="floating">Description</ion-label>
     <ion-textarea></ion-textarea>
   </ion-item>
+  <ion-item padding>
+    <ion-label>Location</ion-label>
+    <agm-map [zoom]="zoom" [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+  </ion-item>
   <h1 text-center>Live Alert</h1>
   <ion-row justify-content-center margin-top padding-top>
     <ion-buttons>
