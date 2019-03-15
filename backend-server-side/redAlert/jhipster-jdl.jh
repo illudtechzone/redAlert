@@ -1,0 +1,80 @@
+
+enum CommentType {
+
+	ACTION,
+    CLOSE_REQUEST
+}
+
+enum Alert {
+	RED, 
+    ORANGE, 
+    GREEN
+}
+
+
+enum ReportType {
+
+	FAKE,
+    SOLVED,
+    TIMEOUT
+}
+
+entity Friend {
+
+	userId Long
+}
+
+entity Post {
+
+	userId Long,
+	createdOn Instant,
+    description String,
+    active Boolean,    
+    alertLevel Alert
+}
+
+entity Location {
+
+	latitude String,
+    longitude String
+}
+
+entity Media {
+
+	attachment Blob
+}
+
+entity Comment {
+
+    userId Long,
+    content String,
+    commentType CommentType
+}
+
+entity Report {
+
+	userId Long,
+	reason String,
+    reportType ReportType
+}
+
+relationship OneToOne {
+
+    Post {location} to Location,
+}
+
+relationship OneToMany {
+
+    Post {attachments} to Media,
+    Post {comments} to Comment,
+    Post {reports} to Report
+}
+
+relationship ManyToMany {
+
+	Friend {friends} to Friend{users}
+}
+
+dto * with mapstruct
+service all with serviceImpl
+paginate * with pagination

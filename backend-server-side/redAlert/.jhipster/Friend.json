@@ -1,0 +1,37 @@
+{
+    "name": "Friend",
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "friend",
+            "otherEntityRelationshipName": "users",
+            "relationshipName": "friends",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "friend",
+            "otherEntityRelationshipName": "friends",
+            "relationshipName": "users",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190314072735",
+    "entityTableName": "friend",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "redAlert",
+    "applications": "*",
+    "microserviceName": "redAlert"
+}
