@@ -1,0 +1,36 @@
+{
+    "name": "Comment",
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "commentType",
+            "fieldType": "CommentType",
+            "fieldValues": "ACTION,CLOSE_REQUEST"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "post",
+            "otherEntityName": "post",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190314072739",
+    "entityTableName": "comment",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "redAlert",
+    "applications": "*",
+    "microserviceName": "redAlert"
+}

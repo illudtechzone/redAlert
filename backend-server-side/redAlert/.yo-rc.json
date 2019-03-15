@@ -1,0 +1,36 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.illud.redalert"
+    },
+    "jhipsterVersion": "5.8.2",
+    "applicationType": "microservice",
+    "baseName": "redAlert",
+    "packageName": "com.illud.redalert",
+    "packageFolder": "com/illud/redalert",
+    "serverPort": "8081",
+    "authenticationType": "oauth2",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "MmI5MDhlOTJiNWU3MmQ0ZjI2ZWEwMDdkMmIxZDM1YmNkOGZjYjc3YmE1NThjMTAwNzY4ZDc1ZTEzNDU3OGRjZTJlYjFiYmYyNjFhY2M0MzA3Y2I3N2ExMmUxMzE3N2RiMDc1NTg3MmI5OWUwNjA5MTBlZjk0MWI4NWU1NjlhMWI=",
+    "testFrameworks": [
+      "cucumber"
+    ],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+    "name": "Report",
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "reason",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reportType",
+            "fieldType": "ReportType",
+            "fieldValues": "FAKE,SOLVED,TIMEOUT"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "post",
+            "otherEntityName": "post",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190314072740",
+    "entityTableName": "report",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "redAlert",
+    "applications": "*",
+    "microserviceName": "redAlert"
+}
