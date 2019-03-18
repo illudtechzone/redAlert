@@ -7,7 +7,7 @@ import com.illud.redalert.service.dto.PostDTO;
 import com.illud.redalert.service.mapper.PostMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -17,13 +17,14 @@ import java.util.Optional;
 
 /**
  * Service Implementation for managing Post.
+ * @param <PostRepository>
  */
 @Service
 @Transactional
 public class PostServiceImpl implements PostService {
 
     private final Logger log = LoggerFactory.getLogger(PostServiceImpl.class);
-
+   
     private final PostRepository postRepository;
 
     private final PostMapper postMapper;
@@ -32,9 +33,10 @@ public class PostServiceImpl implements PostService {
         this.postRepository = postRepository;
         this.postMapper = postMapper;
     }
-
+   
+    
     /**
-     * Save a post.
+     * Save a post.epository
      *
      * @param postDTO the entity to save
      * @return the persisted entity
@@ -85,5 +87,11 @@ public class PostServiceImpl implements PostService {
     public void delete(Long id) {
         log.debug("Request to delete Post : {}", id);
         postRepository.deleteById(id);
+    }
+    @Override
+    @Transactional(readOnly = true)
+    public Page<PostDTO> findByuserId(Long userId,Pageable pageable){
+    	log.debug("|||---Request to all posts by userId---|||");
+    	return postRepository.findByuserId(userId,pageable).map(postMapper::toDto);
     }
 }

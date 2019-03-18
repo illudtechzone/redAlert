@@ -11,7 +11,6 @@ enum Alert {
     GREEN
 }
 
-
 enum ReportType {
 
 	FAKE,
@@ -21,12 +20,12 @@ enum ReportType {
 
 entity Friend {
 
-	userId Long
+	userId String
 }
 
 entity Post {
 
-	userId Long,
+	userId String,
 	createdOn Instant,
     description String,
     active Boolean,    
@@ -46,14 +45,14 @@ entity Media {
 
 entity Comment {
 
-    userId Long,
+    userId String,
     content String,
     commentType CommentType
 }
 
 entity Report {
 
-	userId Long,
+	userId String,
 	reason String,
     reportType ReportType
 }
