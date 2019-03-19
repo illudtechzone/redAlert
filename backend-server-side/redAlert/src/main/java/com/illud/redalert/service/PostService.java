@@ -44,5 +44,5 @@ public interface PostService {
      */
     void delete(Long id);
 
-	Page<PostDTO> findByuserId(Long userId, Pageable pageable);
+	Page<PostDTO> findByUserId(String userId, Pageable pageable);
 }

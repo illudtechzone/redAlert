@@ -24,7 +24,7 @@ public class Comment implements Serializable {
     private Long id;
 
     @Column(name = "user_id")
-    private Long userId;
+    private String userId;
 
     @Column(name = "content")
     private String content;
@@ -46,16 +46,16 @@ public class Comment implements Serializable {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public Comment userId(Long userId) {
+    public Comment userId(String userId) {
         this.userId = userId;
         return this;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -123,7 +123,7 @@ public class Comment implements Serializable {
     public String toString() {
         return "Comment{" +
             "id=" + getId() +
-            ", userId=" + getUserId() +
+            ", userId='" + getUserId() + "'" +
             ", content='" + getContent() + "'" +
             ", commentType='" + getCommentType() + "'" +
             "}";

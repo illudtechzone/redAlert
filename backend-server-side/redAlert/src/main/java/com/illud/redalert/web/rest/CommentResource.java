@@ -4,6 +4,8 @@ import com.illud.redalert.web.rest.errors.BadRequestAlertException;
 import com.illud.redalert.web.rest.util.HeaderUtil;
 import com.illud.redalert.web.rest.util.PaginationUtil;
 import com.illud.redalert.service.dto.CommentDTO;
+import com.illud.redalert.service.dto.PostDTO;
+
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -115,5 +117,12 @@ public class CommentResource {
         log.debug("REST request to delete Comment : {}", id);
         commentService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+    @GetMapping("comments1/{postId}")
+	  public ResponseEntity<List<CommentDTO>> findCommentsByPostId(@PathVariable Long postId,Pageable pageable ){
+    	log.debug("|||---find comments by post id---||| ", postId);
+    	Page<CommentDTO> page = commentService.findByPostId(postId,pageable);
+   	   	HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/comments1");
+   	   	return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 }

@@ -1,6 +1,7 @@
 package com.illud.redalert.service;
 
 import com.illud.redalert.service.dto.CommentDTO;
+import com.illud.redalert.service.dto.PostDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -43,4 +44,6 @@ public interface CommentService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+	Page<CommentDTO> findByPostId(Long postId, Pageable pageable);
 }

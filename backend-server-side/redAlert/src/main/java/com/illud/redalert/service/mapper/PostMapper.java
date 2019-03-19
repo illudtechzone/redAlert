@@ -28,4 +28,4 @@ public interface PostMapper extends EntityMapper<PostDTO, Post> {
         post.setId(id);
         return post;
     }
-}
+    }

@@ -24,7 +24,7 @@ public class Report implements Serializable {
     private Long id;
 
     @Column(name = "user_id")
-    private Long userId;
+    private String userId;
 
     @Column(name = "reason")
     private String reason;
@@ -46,16 +46,16 @@ public class Report implements Serializable {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public Report userId(Long userId) {
+    public Report userId(String userId) {
         this.userId = userId;
         return this;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -123,7 +123,7 @@ public class Report implements Serializable {
     public String toString() {
         return "Report{" +
             "id=" + getId() +
-            ", userId=" + getUserId() +
+            ", userId='" + getUserId() + "'" +
             ", reason='" + getReason() + "'" +
             ", reportType='" + getReportType() + "'" +
             "}";
