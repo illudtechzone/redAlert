@@ -22,7 +22,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD95JHqcUsr7jccXOlD3ZFhpN4S11Qy06Q'
+      apiKey: 'AIzaSyCQc2iiem96Es76TEOcPkcSvfHx5wpvs28'
     })
   ],
   declarations: [PostAlertModalPage],

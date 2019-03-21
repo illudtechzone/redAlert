@@ -1,3 +1,4 @@
+import { OAuthService } from 'angular-oauth2-oidc';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarPage implements OnInit {
 
-  constructor() { }
+  constructor(private oauthService: OAuthService) { }
 
   ngOnInit() {
   }
 
+  logout() {
+    this.oauthService.logOut();
+  }
 }
