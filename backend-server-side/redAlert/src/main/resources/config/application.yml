@@ -127,10 +127,10 @@ spring:
 security:
     oauth2:
         client:
-            client-id: internal
-            client-secret: internal
+            client-id: RA-ROOT
+            client-secret: c55ef96a-e984-4ec5-ae1f-6d5e17efb5eb
         resource:
-            user-info-uri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/userinfo
+            user-info-uri: http://localhost:8080/auth/realms/RedAlert/protocol/openid-connect/userinfo
 
 server:
     servlet:
