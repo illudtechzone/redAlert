@@ -1,3 +1,5 @@
+import { OAuthService } from 'angular-oauth2-oidc';
+import { NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController, private oauthService: OAuthService) { }
 
   ngOnInit() {
+    if (this.oauthService.hasValidAccessToken()) {
+      this.navCtrl.navigateRoot('/home');
+    }
+  }
+
+  login() {
+    this.oauthService.initImplicitFlow();
+  }
+
+  signup() {
+    this.navCtrl.navigateForward('/login');
   }
 
 }
