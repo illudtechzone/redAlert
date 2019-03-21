@@ -10,7 +10,7 @@ public class CommentDTO implements Serializable {
 
     private Long id;
 
-    private Long userId;
+    private String userId;
 
     private String content;
 
@@ -27,11 +27,11 @@ public class CommentDTO implements Serializable {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -84,7 +84,7 @@ public class CommentDTO implements Serializable {
     public String toString() {
         return "CommentDTO{" +
             "id=" + getId() +
-            ", userId=" + getUserId() +
+            ", userId='" + getUserId() + "'" +
             ", content='" + getContent() + "'" +
             ", commentType='" + getCommentType() + "'" +
             ", post=" + getPostId() +

@@ -27,7 +27,7 @@ public class Post implements Serializable {
     private Long id;
 
     @Column(name = "user_id")
-    private Long userId;
+    private String userId;
 
     @Column(name = "created_on")
     private Instant createdOn;
@@ -61,16 +61,16 @@ public class Post implements Serializable {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public Post userId(Long userId) {
+    public Post userId(String userId) {
         this.userId = userId;
         return this;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -239,7 +239,7 @@ public class Post implements Serializable {
     public String toString() {
         return "Post{" +
             "id=" + getId() +
-            ", userId=" + getUserId() +
+            ", userId='" + getUserId() + "'" +
             ", createdOn='" + getCreatedOn() + "'" +
             ", description='" + getDescription() + "'" +
             ", active='" + isActive() + "'" +

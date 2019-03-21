@@ -86,4 +86,11 @@ public class PostServiceImpl implements PostService {
         log.debug("Request to delete Post : {}", id);
         postRepository.deleteById(id);
     }
+
+	@Override
+	public Page<PostDTO> findByUserId(String userId, Pageable pageable) {
+		// TODO Auto-generated method stub
+		log.debug("|||---Request to get all Posts for userId", userId);
+		return postRepository.findByUserId(userId, pageable).map(postMapper::toDto);
+	}
 }

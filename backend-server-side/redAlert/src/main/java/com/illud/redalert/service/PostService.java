@@ -43,4 +43,6 @@ public interface PostService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+	Page<PostDTO> findByUserId(String userId, Pageable pageable);
 }

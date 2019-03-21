@@ -10,7 +10,7 @@ public class ReportDTO implements Serializable {
 
     private Long id;
 
-    private Long userId;
+    private String userId;
 
     private String reason;
 
@@ -27,11 +27,11 @@ public class ReportDTO implements Serializable {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -84,7 +84,7 @@ public class ReportDTO implements Serializable {
     public String toString() {
         return "ReportDTO{" +
             "id=" + getId() +
-            ", userId=" + getUserId() +
+            ", userId='" + getUserId() + "'" +
             ", reason='" + getReason() + "'" +
             ", reportType='" + getReportType() + "'" +
             ", post=" + getPostId() +

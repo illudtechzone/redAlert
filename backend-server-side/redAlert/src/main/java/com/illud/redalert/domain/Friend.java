@@ -24,7 +24,7 @@ public class Friend implements Serializable {
     private Long id;
 
     @Column(name = "user_id")
-    private Long userId;
+    private String userId;
 
     @ManyToMany
     @JoinTable(name = "friend_friends",
@@ -45,16 +45,16 @@ public class Friend implements Serializable {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public Friend userId(Long userId) {
+    public Friend userId(String userId) {
         this.userId = userId;
         return this;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -133,7 +133,7 @@ public class Friend implements Serializable {
     public String toString() {
         return "Friend{" +
             "id=" + getId() +
-            ", userId=" + getUserId() +
+            ", userId='" + getUserId() + "'" +
             "}";
     }
 }
