@@ -116,4 +116,11 @@ public class ReportResource {
         reportService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+    @GetMapping("/reports1/{postId}")
+    public ResponseEntity<List<ReportDTO>> getAllReportsByPostId (@PathVariable Long postId,Pageable pageable){
+    	log.debug(" |||---Rest request to getall repors by post id ---|||", postId);
+    	Page<ReportDTO> page = reportService.findAllReportsByPostId(postId,pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/reports1");
+		return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
 }

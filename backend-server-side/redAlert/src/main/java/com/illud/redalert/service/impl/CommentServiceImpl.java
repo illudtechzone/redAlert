@@ -4,6 +4,7 @@ import com.illud.redalert.service.CommentService;
 import com.illud.redalert.domain.Comment;
 import com.illud.redalert.repository.CommentRepository;
 import com.illud.redalert.service.dto.CommentDTO;
+import com.illud.redalert.service.dto.PostDTO;
 import com.illud.redalert.service.mapper.CommentMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,4 +87,11 @@ public class CommentServiceImpl implements CommentService {
         log.debug("Request to delete Comment : {}", id);
         commentRepository.deleteById(id);
     }
+
+	@Override
+	public Page<CommentDTO> findByPostId(Long postId, Pageable pageable) {
+		// TODO Auto-generated method stub
+		log.debug("Request to Comments in post : {}", postId);
+		return commentRepository.findByPostId(postId,pageable).map(commentMapper::toDto);
+	}
 }

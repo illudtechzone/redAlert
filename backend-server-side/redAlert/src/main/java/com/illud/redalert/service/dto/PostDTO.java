@@ -11,7 +11,7 @@ public class PostDTO implements Serializable {
 
     private Long id;
 
-    private Long userId;
+    private String userId;
 
     private Instant createdOn;
 
@@ -32,11 +32,11 @@ public class PostDTO implements Serializable {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -105,7 +105,7 @@ public class PostDTO implements Serializable {
     public String toString() {
         return "PostDTO{" +
             "id=" + getId() +
-            ", userId=" + getUserId() +
+            ", userId='" + getUserId() + "'" +
             ", createdOn='" + getCreatedOn() + "'" +
             ", description='" + getDescription() + "'" +
             ", active='" + isActive() + "'" +

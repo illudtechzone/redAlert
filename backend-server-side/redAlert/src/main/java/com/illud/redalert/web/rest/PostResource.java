@@ -116,4 +116,14 @@ public class PostResource {
         postService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+    
+    @GetMapping("/posts1/{userId}")
+    public ResponseEntity<List<PostDTO>> findPostsByUserId(@PathVariable String userId,Pageable pageable){
+    	log.debug("|||---postComments---||| ", userId);
+    	Page<PostDTO> page = postService.findByUserId(userId,pageable);
+    	HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/posts");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+		
+    }
+	
 }
