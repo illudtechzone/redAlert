@@ -86,4 +86,10 @@ public class ReportServiceImpl implements ReportService {
         log.debug("Request to delete Report : {}", id);
         reportRepository.deleteById(id);
     }
+
+	@Override
+	public Page<ReportDTO> findAllReportsByPostId(Long postId, Pageable pageable) {
+		log.debug(" |||---Request to get Report : {} ---|||", postId);
+		return reportRepository.findAllReportsByPostId(postId, pageable).map(reportMapper::toDto);
+	}
 }

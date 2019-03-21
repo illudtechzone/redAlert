@@ -43,4 +43,6 @@ public interface ReportService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+	Page<ReportDTO> findAllReportsByPostId(Long postId, Pageable pageable);
 }
