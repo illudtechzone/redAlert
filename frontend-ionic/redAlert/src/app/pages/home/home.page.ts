@@ -1,6 +1,6 @@
+import { PostAlertModalComponent } from './../../components/post-alert-modal/post-alert-modal.component';
 import { ModalController } from '@ionic/angular';
 import { Component } from '@angular/core';
-import { PostAlertModalPage } from '../post-alert-modal/post-alert-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ export class HomePage {
 
   async openModal(alert: String) {
     const modal = await this.modalController.create({
-      component: PostAlertModalPage,
+      component: PostAlertModalComponent,
       componentProps: {alert: alert},
       backdropDismiss: true,
       showBackdrop: true

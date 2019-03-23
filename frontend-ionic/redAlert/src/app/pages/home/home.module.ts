@@ -1,3 +1,5 @@
+import { PostAlertModalComponent } from './../../components/post-alert-modal/post-alert-modal.component';
+import { Components } from './../../components/components';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -6,15 +8,14 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { NavbarPageModule } from '../navbar/navbar.module';
-import { PostAlertModalPageModule } from '../post-alert-modal/post-alert-modal.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PostAlertModalPageModule,
     NavbarPageModule,
+    Components,
     RouterModule.forChild([
       {
         path: '',
@@ -22,6 +23,7 @@ import { PostAlertModalPageModule } from '../post-alert-modal/post-alert-modal.m
       }
     ])
   ],
-  declarations: [HomePage]
+  entryComponents: [PostAlertModalComponent],
+  declarations: [HomePage],
 })
 export class HomePageModule {}

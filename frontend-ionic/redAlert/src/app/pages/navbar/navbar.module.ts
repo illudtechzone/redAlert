@@ -1,3 +1,5 @@
+import { UserOptionsPopoverComponent } from './../../components/user-options-popover/user-options-popover.component';
+import { Components } from './../../components/components';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,9 +16,11 @@ const routes: Routes = [];
     CommonModule,
     FormsModule,
     IonicModule,
+    Components,
     RouterModule.forChild(routes)
   ],
   declarations: [NavbarPage],
-  exports: [NavbarPage]
+  exports: [NavbarPage],
+  entryComponents: [UserOptionsPopoverComponent]
 })
 export class NavbarPageModule {}

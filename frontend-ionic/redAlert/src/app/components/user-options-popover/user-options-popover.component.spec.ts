@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostAlertModalPage } from './post-alert-modal.page';
+import { UserOptionsPopoverComponent } from './user-options-popover.component';
 
-describe('PostAlertModalPage', () => {
-  let component: PostAlertModalPage;
-  let fixture: ComponentFixture<PostAlertModalPage>;
+describe('UserOptionsPopoverComponent', () => {
+  let component: UserOptionsPopoverComponent;
+  let fixture: ComponentFixture<UserOptionsPopoverComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostAlertModalPage ],
+      declarations: [ UserOptionsPopoverComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PostAlertModalPage);
+    fixture = TestBed.createComponent(UserOptionsPopoverComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
