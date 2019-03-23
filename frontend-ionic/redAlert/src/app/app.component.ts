@@ -38,7 +38,7 @@ export class AppComponent {
       title: 'Friends',
       url: '/friends',
       icon: 'people'
-    }
+    },
   ];
 
   constructor(
