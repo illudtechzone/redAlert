@@ -11,6 +11,7 @@ import { PopoverController, AngularDelegate } from '@ionic/angular';
 })
 export class NavbarPage implements OnInit {
 
+  username: any;
   constructor(private popoverController: PopoverController) { }
 
   ngOnInit() {

@@ -104,10 +104,10 @@ jhipster:
             max-entries: 100 # Number of objects in each cache entry
     # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
     cors:
-        allowed-origins: "http://localhost:8100"
+        allowed-origins: "*"
         allowed-methods: "*"
-        allowed-headers: "*"
-        exposed-headers: "**"
+        allowed-headers: "**"
+        exposed-headers: "Authorization,Link,X-Total-Count"
         allow-credentials: true
         max-age: 1800
     mail: # specific JHipster mail property, for standard properties see MailProperties
