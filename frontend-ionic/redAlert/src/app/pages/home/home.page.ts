@@ -1,4 +1,5 @@
-import { AccountResourceService } from 'src/app/shared/gateway-api/services';
+import { OAuthService } from 'angular-oauth2-oidc';
+import { AccountResourceService, UserResourceService } from 'src/app/shared/gateway-api/services';
 import { PostAlertModalComponent } from './../../components/post-alert-modal/post-alert-modal.component';
 import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
@@ -8,19 +9,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit{
+export class HomePage {
 
-  constructor(private modalController: ModalController, private accountResource: AccountResourceService) {}
+  constructor(private modalController: ModalController) {}
 
-  ngOnInit(): void {
-    console.log('here');
-    this.accountResource.getAccountUsingGET().subscribe( (user) => {
-      console.log(user.firstName);
-    },
-    (error) => {
-      console.log('error' + error);
-    });
-  }
   async openModal(alert: String) {
     const modal = await this.modalController.create({
       component: PostAlertModalComponent,
