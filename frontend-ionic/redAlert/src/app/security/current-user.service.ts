@@ -1,7 +1,7 @@
 import { AccountResourceService } from 'src/app/shared/gateway-api/services';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Injectable } from '@angular/core';
-import { UserDTO } from '../api/models';
+import { UserDTO } from '../shared/gateway-api/models';
 
 @Injectable({
   providedIn: 'root'
