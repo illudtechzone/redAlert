@@ -8,8 +8,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: './pages/home/home.module#HomePageModule',
-    canActivate: [HomeRedirectService]
+    redirectTo: '/home'
   },
   {
     path: 'home',
@@ -39,6 +38,7 @@ const routes: Routes = [
   {
     path: 'landing',
     loadChildren: './pages/landing/landing.module#LandingPageModule',
+    canActivate: [HomeRedirectService]
   },
   {
     path: 'login',

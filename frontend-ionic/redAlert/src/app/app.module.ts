@@ -1,4 +1,5 @@
-import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './security/auth-interceptor';
+import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Camera } from '@ionic-native/camera/ngx';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,7 +26,12 @@ import { AppRoutingModule } from './app-routing.module';
     StatusBar,
     SplashScreen,
     Camera,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+}
   ],
   bootstrap: [AppComponent]
 })

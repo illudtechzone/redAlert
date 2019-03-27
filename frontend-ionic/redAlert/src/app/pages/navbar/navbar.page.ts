@@ -5,6 +5,7 @@ import { OAuthService } from 'angular-oauth2-oidc';
 import { Component, OnInit } from '@angular/core';
 import { PopoverController, AngularDelegate } from '@ionic/angular';
 import { userInfo } from 'os';
+import { UserDTO } from 'src/app/shared/gateway-api/models';
 
 @Component({
   selector: 'app-navbar',
@@ -13,14 +14,14 @@ import { userInfo } from 'os';
 })
 export class NavbarPage implements OnInit {
 
-  user: any;
+  user: UserDTO;
   profileName: String;
   constructor(private popoverController: PopoverController, private currentUser: CurrentUserService) { }
 
   async ngOnInit() {
     await this.currentUser.getCurrentUser(false).then( (user) => {
       this.user = user;
-      this.profileName = this.user.given_name + ' ' + this.user.family_name;
+      this.profileName = this.user.firstName + ' ' + this.user.lastName;
     });
   }
 

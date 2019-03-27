@@ -11,10 +11,10 @@ export class HomeRedirectService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.oauthService.hasValidIdToken()) {
-      return true;
+      this.navController.navigateRoot('/home');
+      return false;
     }
 
-    this.navController.navigateRoot('/landing');
-    return false;
+    return true;
   }
 }

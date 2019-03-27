@@ -1,23 +1,24 @@
+import { AccountResourceService } from 'src/app/shared/gateway-api/services';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Injectable } from '@angular/core';
+import { UserDTO } from '../api/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurrentUserService {
 
-  private user: any = undefined;
-  constructor(private oauthService: OAuthService) { }
+  private user: UserDTO = undefined;
+  constructor(private oauthService: OAuthService, private accountservice: AccountResourceService) { }
 
   async getCurrentUser(force: boolean): Promise<any> {
     return new Promise((resolve, reject) => {
       if (force || this.user === undefined) {
-        this.oauthService.loadUserProfile().then( (user) => {
+        this.accountservice.getAccountUsingGET().subscribe( (user) => {
           this.user = user;
-         resolve(this.user);
-        })
-        .catch(
-          (error) => {
+          resolve(this.user);
+        },
+        (error) => {
             console.log('error' + error);
             this.user = undefined;
             reject(null);

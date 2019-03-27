@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  username: String;
+  password: String;
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+  }
+
+  tryLogin() {
+    // this.http.post()
   }
 
 }

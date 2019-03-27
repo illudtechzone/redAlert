@@ -7,7 +7,7 @@ import { OAuthService, JwksValidationHandler, AuthConfig } from 'angular-oauth2-
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/auth/realms/RedAlert',
-  redirectUri: window.location.origin + '/home',
+  redirectUri: window.location.origin,
   clientId: 'RA-ROOT',
   scope: 'openid profile email'
 };
