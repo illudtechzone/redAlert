@@ -1,8 +1,12 @@
-ion-icon
-{
-font-size: 40px;
+
+
+ion-card {
+
+  box-shadow: 10px;
+  width: 100% ;
+  margin: 0 ;
+  cursor: pointer;
 }
-ion-card
-{
-cursor: pointer;
+ion-textarea{
+  width:20%;
 }

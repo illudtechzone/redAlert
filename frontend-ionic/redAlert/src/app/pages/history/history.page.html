@@ -1,17 +1,33 @@
-<app-navbar></app-navbar>
+<app-navbar ></app-navbar>
 
-<ion-content padding>
+<ion-content padding-top >
 
-    <ion-card (click)="getPosts()">
+    <ion-card (click)="getPosts()" >
         <ion-card-header>
-          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-          <ion-card-title>Card Title</ion-card-title>
+          <ion-card-subtitle>20/10/1999</ion-card-subtitle>
+          <ion-card-title style="color:orangered;"><h1>ORANGE</h1></ion-card-title>
         </ion-card-header>
 
         <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+         Cant Help
         </ion-card-content>
       </ion-card>
+      <br>
+      <br>
+
+      <ion-card (click)="getPosts()" >
+          <ion-card-header>
+            <ion-card-subtitle>20/10/1999</ion-card-subtitle>
+            <ion-card-title style="color: red;"><h1>DANGER</h1></ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            Help Me
+          </ion-card-content>
+        </ion-card>
+
+
+
+
 
 </ion-content>
