@@ -122,4 +122,21 @@ public class FriendResource {
         friendService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+    @GetMapping("/friends1/{userId}")
+    public ResponseEntity<List<FriendDTO>> findByUserName(@PathVariable String userId,Pageable pageable){
+    	log.debug(" |||---Rest request to find request to userId ---|||",userId);
+    	Page<FriendDTO>  page = friendService.findByUserId(userId,pageable);
+    	HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "api/posts");
+		return ResponseEntity.ok().headers(headers).body(page.getContent());
+    	
+    }
+	/*
+	 * @GetMapping("/friends1/{userId}") public ResponseEntity<List<FriendDTO>>
+	 * findAllFriendsByfriendId (@PathVariable String userId, Pageable pageable){
+	 * log.debug(" |||---Rest request to find request to userId ---|||",userId);
+	 * Page<FriendDTO> page = friendService.findAllFriendsByUserId(userId,pageable);
+	 * HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page,
+	 * "api/posts"); return null; }
+	 */
+    
 }

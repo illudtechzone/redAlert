@@ -49,4 +49,7 @@ public interface FriendService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+
+	Page<FriendDTO> findByUserId(String userId, Pageable pageable);
 }

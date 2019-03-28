@@ -95,4 +95,10 @@ public class FriendServiceImpl implements FriendService {
         log.debug("Request to delete Friend : {}", id);
         friendRepository.deleteById(id);
     }
+
+	@Override
+	public Page<FriendDTO> findByUserId(String userId, Pageable pageable) {
+		log.debug(" |||---Request to get Friend : {} |||---", userId);
+		return friendRepository.findByUserId(userId,pageable).map(friendMapper::toDto);
+	}
 }

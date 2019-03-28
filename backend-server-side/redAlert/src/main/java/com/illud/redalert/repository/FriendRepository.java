@@ -1,6 +1,8 @@
 package com.illud.redalert.repository;
 
 import com.illud.redalert.domain.Friend;
+import com.illud.redalert.service.dto.FriendDTO;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
@@ -26,5 +28,7 @@ public interface FriendRepository extends JpaRepository<Friend, Long> {
 
     @Query("select friend from Friend friend left join fetch friend.friends where friend.id =:id")
     Optional<Friend> findOneWithEagerRelationships(@Param("id") Long id);
+
+	Page<Friend> findByUserId(String userId, Pageable pageable);
 
 }
