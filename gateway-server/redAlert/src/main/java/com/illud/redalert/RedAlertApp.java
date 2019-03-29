@@ -26,6 +26,9 @@ import java.util.Collection;
     @ComponentScan.Filter(com.illud.redalert.client.ExcludeFromComponentScan.class)
 })
 @EnableFeignClients
+@ComponentScan( excludeFilters = {
+    @ComponentScan.Filter(com.illud.redalert.client.ExcludeFromComponentScan.class)
+})
 @SpringBootApplication
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
 public class RedAlertApp {

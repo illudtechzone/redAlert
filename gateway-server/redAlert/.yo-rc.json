@@ -1,40 +1,40 @@
 {
-    "generator-jhipster": {
-        "promptValues": {
-            "packageName": "com.illud.redalert"
-        },
-        "jhipsterVersion": "5.8.1",
-        "applicationType": "gateway",
-        "baseName": "redAlert",
-        "packageName": "com.illud.redalert",
-        "packageFolder": "com/illud/redalert",
-        "serverPort": "8082",
-        "authenticationType": "oauth2",
-        "cacheProvider": "ehcache",
-        "enableHibernateCache": true,
-        "websocket": false,
-        "databaseType": "sql",
-        "devDatabaseType": "mysql",
-        "prodDatabaseType": "mysql",
-        "searchEngine": false,
-        "messageBroker": false,
-        "serviceDiscoveryType": false,
-        "buildTool": "maven",
-        "enableSwaggerCodegen": false,
-        "clientFramework": "angularX",
-        "useSass": true,
-        "clientPackageManager": "npm",
-        "testFrameworks": [],
-        "jhiPrefix": "jhi",
-        "entitySuffix": "",
-        "dtoSuffix": "DTO",
-        "otherModules": [],
-        "enableTranslation": false
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.illud.redalert"
     },
-    "generator-jhipster-swagger-cli": {
-        "promptValues": {
-            "inputSpec": "http://localhost:8081/redAlert/v2/api-docs",
-            "cliName": "redalertmicroservice"
-        }
+    "jhipsterVersion": "5.8.1",
+    "applicationType": "gateway",
+    "baseName": "redAlert",
+    "packageName": "com.illud.redalert",
+    "packageFolder": "com/illud/redalert",
+    "serverPort": "8082",
+    "authenticationType": "oauth2",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false
+  },
+  "generator-jhipster-swagger-cli": {
+    "promptValues": {
+      "inputSpec": "http://localhost:8081/redAlert/v2/api-docs",
+      "cliName": "redalertmicroservice"
     }
+  }
 }
