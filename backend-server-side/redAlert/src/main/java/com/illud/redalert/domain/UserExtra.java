@@ -25,7 +25,7 @@ public class UserExtra implements Serializable {
     @Column(name = "user_email")
     private String userEmail;
 
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name = "user_extra_friends",
                joinColumns = @JoinColumn(name = "user_extra_id", referencedColumnName = "id"),
                inverseJoinColumns = @JoinColumn(name = "friends_id", referencedColumnName = "id"))
