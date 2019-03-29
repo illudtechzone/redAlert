@@ -15,30 +15,19 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Friend.
+        Added the entity FriendsList.
     -->
-    <changeSet id="20190314072735-1" author="jhipster">
-        <createTable tableName="friend">
+    <changeSet id="20190329103857-1" author="jhipster">
+        <createTable tableName="friends_list">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="user_id" type="varchar(255)">
+            <column name="user_email" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        
-        <createTable tableName="friend_friends">
-            <column name="friends_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="friend_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="friend_id, friends_id" tableName="friend_friends"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
