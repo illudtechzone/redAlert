@@ -10,3 +10,15 @@ ion-card {
 ion-textarea{
   width:20%;
 }
+
+.bg-warning {
+  background-color: var(--ion-color-warning);
+}
+
+.bg-danger {
+  background-color: var(--ion-color-danger);
+}
+
+.bg-success {
+  background-color: var(--ion-color-success);
+}

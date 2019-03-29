@@ -11,14 +11,12 @@ export class HistoryPage implements OnInit {
   constructor(private nav: NavController) { }
 
   ngOnInit() {
-    this.nav.navigateRoot("/history");
+    this.nav.navigateRoot('/history');
   }
 
 
-  getPosts()
-  {
-  this.nav.navigateForward("/post");
-
+  getPost() {
+  this.nav.navigateForward('/post');
   }
 
 }

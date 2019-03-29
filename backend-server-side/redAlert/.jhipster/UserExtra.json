@@ -1,0 +1,29 @@
+{
+    "name": "UserExtra",
+    "fields": [
+        {
+            "fieldName": "userEmail",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "userExtra",
+            "relationshipName": "friends",
+            "otherEntityName": "friendsList",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190329071232",
+    "entityTableName": "user_extra",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "redAlert",
+    "applications": "*",
+    "microserviceName": "redAlert"
+}

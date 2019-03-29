@@ -1,50 +1,51 @@
 package com.illud.redalert.service;
 
-import com.illud.redalert.service.dto.FriendDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.illud.redalert.domain.UserExtra;
+
 import java.util.Optional;
 
 /**
- * Service Interface for managing Friend.
+ * Service Interface for managing UserExtra.
  */
-public interface FriendService {
+public interface UserExtraService {
 
     /**
-     * Save a friend.
+     * Save a userExtra.
      *
-     * @param friendDTO the entity to save
+     * @param userExtra the entity to save
      * @return the persisted entity
      */
-    FriendDTO save(FriendDTO friendDTO);
+    UserExtra save(UserExtra userExtra);
 
     /**
-     * Get all the friends.
+     * Get all the userExtras.
      *
      * @param pageable the pagination information
      * @return the list of entities
      */
-    Page<FriendDTO> findAll(Pageable pageable);
+    Page<UserExtra> findAll(Pageable pageable);
 
     /**
-     * Get all the Friend with eager load of many-to-many relationships.
+     * Get all the UserExtra with eager load of many-to-many relationships.
      *
      * @return the list of entities
      */
-    Page<FriendDTO> findAllWithEagerRelationships(Pageable pageable);
+    Page<UserExtra> findAllWithEagerRelationships(Pageable pageable);
     
     /**
-     * Get the "id" friend.
+     * Get the "id" userExtra.
      *
      * @param id the id of the entity
      * @return the entity
      */
-    Optional<FriendDTO> findOne(Long id);
+    Optional<UserExtra> findOne(String userEmail);
 
     /**
-     * Delete the "id" friend.
+     * Delete the "id" userExtra.
      *
      * @param id the id of the entity
      */
