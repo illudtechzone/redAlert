@@ -31,7 +31,7 @@ import com.illud.redalert.client.redalertmicroservice.api.FriendResourceApi;
 import com.illud.redalert.client.redalertmicroservice.api.PostResourceApi;
 import com.illud.redalert.client.redalertmicroservice.model.*;
 @RestController
-@RequestMapping("/apig")
+@RequestMapping("/api")
 public class RedAlertAggregateResource {
 	
 	private final Logger log = LoggerFactory.getLogger(RedAlertAggregateResource.class);
