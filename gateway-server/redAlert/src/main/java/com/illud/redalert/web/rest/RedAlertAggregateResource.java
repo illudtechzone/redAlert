@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.illud.redalert.client.redalertmicroservice.api.CommentResourceApi;
+import com.illud.redalert.client.redalertmicroservice.api.LocationResourceApi;
 import com.illud.redalert.client.redalertmicroservice.api.PostResourceApi;
 import com.illud.redalert.client.redalertmicroservice.model.CommentDTO;
+import com.illud.redalert.client.redalertmicroservice.model.LocationDTO;
 import com.illud.redalert.client.redalertmicroservice.model.PostDTO;
 import com.illud.redalert.web.rest.errors.BadRequestAlertException;
 @RestController
@@ -30,7 +32,10 @@ public class RedAlertAggregateResource {
 	
 	private static final String ENTITY_NAME = "redAlertFriend";
 	
-	
+
+	@Autowired
+	private LocationResourceApi locationResourceApi;
+
 	
 	@Autowired
 	private PostResourceApi postResourceApi;
@@ -63,7 +68,7 @@ public class RedAlertAggregateResource {
 		
 	}
 	@PostMapping("comment")
-	public ResponseEntity<CommentDTO> CraeteComment(@RequestBody CommentDTO commentDTO) throws URISyntaxException{
+	public ResponseEntity<CommentDTO> CreateComment(@RequestBody CommentDTO commentDTO) throws URISyntaxException{
 		log.debug(" |||---client create comment  :---||| ", commentDTO);
 		if(commentDTO.getId()!=null) {
 			throw new BadRequestAlertException("A new Friend is not allowed already have an ID :", ENTITY_NAME,"idexists);");
@@ -72,17 +77,14 @@ public class RedAlertAggregateResource {
         return result;
 		
 	}
-	@GetMapping("comment/{postId}")
-	public ResponseEntity<List<CommentDTO>> findCommentByPostId(@PathVariable long postId,Pageable pageable){
-		log.debug(" |||---client findcommentbypostid comment  :---||| ", postId);
+	@PostMapping("location")
+	public ResponseEntity<LocationDTO> createLocation(@RequestBody LocationDTO locationDTO )throws URISyntaxException{
+		log.debug(" |||---client create location  :---||| ", locationDTO);
+		if(locationDTO.getId()!=null) {
+			throw new BadRequestAlertException ("A new Friend is not allowed already have an ID :", ENTITY_NAME,"idexists);");
+		}
+		ResponseEntity<LocationDTO> result= locationResourceApi.createLocationUsingPOST(locationDTO);
+		return result;
 		
-		ArrayList<Order> list=new ArrayList<Order>();
-		pageable.getSort().stream().forEach(list::add);
-		List<String> sortlist=new ArrayList<String>();
-		
-		list.stream().map(x->x.toString()).forEach(sortlist::add);
-		
-		return commentResourceApi.findCommentsByPostIdUsingGET(postId,pageable.getPageNumber(),pageable.getPageSize(),sortlist);
-			
 	}
 }
