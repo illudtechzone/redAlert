@@ -1,6 +1,5 @@
 package com.illud.redalert.web.rest;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +7,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Order;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,16 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.illud.redalert.service.UserService;
-
-import com.illud.redalert.web.rest.errors.BadRequestAlertException;
-import com.illud.redalert.web.rest.util.HeaderUtil;
-import com.illud.redalert.web.rest.util.PaginationUtil;
 import com.illud.redalert.client.redalertmicroservice.api.CommentResourceApi;
-import com.illud.redalert.client.redalertmicroservice.api.FriendResourceApi;
 import com.illud.redalert.client.redalertmicroservice.api.PostResourceApi;
-import com.illud.redalert.client.redalertmicroservice.model.*;
+import com.illud.redalert.client.redalertmicroservice.model.CommentDTO;
+import com.illud.redalert.client.redalertmicroservice.model.PostDTO;
+import com.illud.redalert.web.rest.errors.BadRequestAlertException;
 @RestController
 @RequestMapping("/api")
 public class RedAlertAggregateResource {
@@ -38,8 +30,7 @@ public class RedAlertAggregateResource {
 	
 	private static final String ENTITY_NAME = "redAlertFriend";
 	
-	@Autowired
-	private FriendResourceApi friendResourceApi;
+	
 	
 	@Autowired
 	private PostResourceApi postResourceApi;
@@ -47,47 +38,7 @@ public class RedAlertAggregateResource {
 	@Autowired
 	private CommentResourceApi commentResourceApi;
 	
-	@PostMapping("friends")
-	public ResponseEntity<FriendDTO> createFriend(@RequestBody FriendDTO friendDTO) throws URISyntaxException {
-		log.debug(" |||---client request to save Friend :---||| ", friendDTO);
-		if (friendDTO.getId() != null) {
-            throw new BadRequestAlertException("A new friend cannot already have an ID", ENTITY_NAME, "idexists");
-        }
-        ResponseEntity<FriendDTO> result = friendResourceApi.createFriendUsingPOST(friendDTO);
-        return result;
 	
-	}
-	@GetMapping("friends/{userId}")
-	public ResponseEntity<List<FriendDTO>> findByUserName(@PathVariable String userId,Pageable pageable){
-		log.debug(" |||---client request to get user name  :---||| ", userId);
-		
-		  ArrayList<Order> list=new ArrayList<Order>();
-		  pageable.getSort().stream().forEach(list::add);
-		 
-		  
-		  List<String> sortList=new ArrayList<String>();
-		 
-		  
-		 /* list.stream().map(x->x.toString()).forEach(sortList::add);
-		 */
-		
-		for(Order order:list)
-		{
-			sortList.add(order.toString());
-		}
-		
-		
-		/*
-		 * log.debug("sortList size ::::::::::::::::::::::::::::::::::::::::::::::::::"
-		 * +sortList.size()); ResponseEntity<List<FriendDTO>> page =
-		 * friendResourceApi.findByUserNameUsingGET(userId,pageable.getPageNumber(),
-		 * pageable.getPageSize(),pageable.getSort());
-		 */
-		
-		
-		return friendResourceApi.findByUserNameUsingGET(userId,pageable.getPageNumber(),
-				 pageable.getPageSize(),sortList);
-	}
 	@GetMapping("post/{userId}")
 	public ResponseEntity<List<PostDTO>> findPostsByUserId(@PathVariable String userId, Pageable pageable){
 		log.debug(" |||---client request to get postbyuserid  :---||| ", userId);
