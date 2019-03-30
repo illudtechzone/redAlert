@@ -1,0 +1,20 @@
+{
+    "name": "FriendsList",
+    "fields": [
+        {
+            "fieldName": "userEmail",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190329103857",
+    "entityTableName": "friends_list",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "redAlert",
+    "applications": "*",
+    "microserviceName": "redAlert"
+}

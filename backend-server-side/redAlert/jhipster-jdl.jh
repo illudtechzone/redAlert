@@ -19,9 +19,13 @@ enum ReportType {
     TIMEOUT
 }
 
-entity Friend {
+entity UserExtra {
 
-	userId String
+	userEmail String
+}
+
+entity FriendsList {
+	userEmail String
 }
 
 entity Post {
@@ -72,7 +76,7 @@ relationship OneToMany {
 
 relationship ManyToMany {
 
-	Friend {friends} to Friend{users}
+	UserExtra {friends} to FriendsList
 }
 
 dto * with mapstruct

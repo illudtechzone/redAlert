@@ -76,6 +76,53 @@ class UserResourceService extends __BaseService {
   }
 
   /**
+   * @param params The `UserResourceService.AddFriendUsingGETParams` containing the following parameters:
+   *
+   * - `email`: email
+   *
+   * - `name`:
+   *
+   * @return OK
+   */
+  addFriendUsingGETResponse(params: UserResourceService.AddFriendUsingGETParams): __Observable<__StrictHttpResponse<Array<UserDTO>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    if (params.name != null) __params = __params.set('name', params.name.toString());
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/api/users/add-friend/${params.email}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<UserDTO>>;
+      })
+    );
+  }
+  /**
+   * @param params The `UserResourceService.AddFriendUsingGETParams` containing the following parameters:
+   *
+   * - `email`: email
+   *
+   * - `name`:
+   *
+   * @return OK
+   */
+  addFriendUsingGET(params: UserResourceService.AddFriendUsingGETParams): __Observable<Array<UserDTO>> {
+    return this.addFriendUsingGETResponse(params).pipe(
+      __map(_r => _r.body as Array<UserDTO>)
+    );
+  }
+
+  /**
    * @return OK
    */
   getAuthoritiesUsingGETResponse(): __Observable<__StrictHttpResponse<Array<string>>> {
@@ -105,6 +152,146 @@ class UserResourceService extends __BaseService {
   getAuthoritiesUsingGET(): __Observable<Array<string>> {
     return this.getAuthoritiesUsingGETResponse().pipe(
       __map(_r => _r.body as Array<string>)
+    );
+  }
+
+  /**
+   * @param params The `UserResourceService.GetSuggestionsUsingGETParams` containing the following parameters:
+   *
+   * - `sort`: Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
+   *
+   * - `size`: Size of a page
+   *
+   * - `page`: Page number of the requested page
+   *
+   * - `name`:
+   *
+   * @return OK
+   */
+  getSuggestionsUsingGETResponse(params: UserResourceService.GetSuggestionsUsingGETParams): __Observable<__StrictHttpResponse<Array<UserDTO>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    (params.sort || []).forEach(val => {if (val != null) __params = __params.append('sort', val.toString())});
+    if (params.size != null) __params = __params.set('size', params.size.toString());
+    if (params.page != null) __params = __params.set('page', params.page.toString());
+    if (params.name != null) __params = __params.set('name', params.name.toString());
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/api/users/friend-suggestions`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<UserDTO>>;
+      })
+    );
+  }
+  /**
+   * @param params The `UserResourceService.GetSuggestionsUsingGETParams` containing the following parameters:
+   *
+   * - `sort`: Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
+   *
+   * - `size`: Size of a page
+   *
+   * - `page`: Page number of the requested page
+   *
+   * - `name`:
+   *
+   * @return OK
+   */
+  getSuggestionsUsingGET(params: UserResourceService.GetSuggestionsUsingGETParams): __Observable<Array<UserDTO>> {
+    return this.getSuggestionsUsingGETResponse(params).pipe(
+      __map(_r => _r.body as Array<UserDTO>)
+    );
+  }
+
+  /**
+   * @param email email
+   * @return OK
+   */
+  getFriendsUsingGETResponse(email: string): __Observable<__StrictHttpResponse<Array<UserDTO>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/api/users/friends-of/${email}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<UserDTO>>;
+      })
+    );
+  }
+  /**
+   * @param email email
+   * @return OK
+   */
+  getFriendsUsingGET(email: string): __Observable<Array<UserDTO>> {
+    return this.getFriendsUsingGETResponse(email).pipe(
+      __map(_r => _r.body as Array<UserDTO>)
+    );
+  }
+
+  /**
+   * @param params The `UserResourceService.UnFriendUsingGETParams` containing the following parameters:
+   *
+   * - `email`: email
+   *
+   * - `name`:
+   *
+   * @return OK
+   */
+  unFriendUsingGETResponse(params: UserResourceService.UnFriendUsingGETParams): __Observable<__StrictHttpResponse<Array<UserDTO>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    if (params.name != null) __params = __params.set('name', params.name.toString());
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/api/users/un-friend/${params.email}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<UserDTO>>;
+      })
+    );
+  }
+  /**
+   * @param params The `UserResourceService.UnFriendUsingGETParams` containing the following parameters:
+   *
+   * - `email`: email
+   *
+   * - `name`:
+   *
+   * @return OK
+   */
+  unFriendUsingGET(params: UserResourceService.UnFriendUsingGETParams): __Observable<Array<UserDTO>> {
+    return this.unFriendUsingGETResponse(params).pipe(
+      __map(_r => _r.body as Array<UserDTO>)
     );
   }
 
@@ -166,6 +353,52 @@ module UserResourceService {
      * Page number of the requested page
      */
     page?: number;
+  }
+
+  /**
+   * Parameters for addFriendUsingGET
+   */
+  export interface AddFriendUsingGETParams {
+
+    /**
+     * email
+     */
+    email: string;
+    name?: string;
+  }
+
+  /**
+   * Parameters for getSuggestionsUsingGET
+   */
+  export interface GetSuggestionsUsingGETParams {
+
+    /**
+     * Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
+     */
+    sort?: Array<string>;
+
+    /**
+     * Size of a page
+     */
+    size?: number;
+
+    /**
+     * Page number of the requested page
+     */
+    page?: number;
+    name?: string;
+  }
+
+  /**
+   * Parameters for unFriendUsingGET
+   */
+  export interface UnFriendUsingGETParams {
+
+    /**
+     * email
+     */
+    email: string;
+    name?: string;
   }
 }
 

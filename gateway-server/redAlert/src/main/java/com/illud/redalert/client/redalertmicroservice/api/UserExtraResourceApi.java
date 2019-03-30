@@ -5,7 +5,7 @@
  */
 package com.illud.redalert.client.redalertmicroservice.api;
 
-import com.illud.redalert.client.redalertmicroservice.model.LocationDTO;
+import com.illud.redalert.client.redalertmicroservice.model.UserExtra;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -27,69 +27,69 @@ import java.util.Map;
 import java.util.Optional;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-03-29T19:09:02.345873+05:30[Asia/Calcutta]")
 
-@Api(value = "LocationResource", description = "the LocationResource API")
-public interface LocationResourceApi {
+@Api(value = "UserExtraResource", description = "the UserExtraResource API")
+public interface UserExtraResourceApi {
 
-    @ApiOperation(value = "createLocation", nickname = "createLocationUsingPOST", notes = "", response = LocationDTO.class, tags={ "location-resource", })
+    @ApiOperation(value = "createUserExtra", nickname = "createUserExtraUsingPOST", notes = "", response = UserExtra.class, tags={ "user-extra-resource", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = LocationDTO.class),
+        @ApiResponse(code = 200, message = "OK", response = UserExtra.class),
         @ApiResponse(code = 201, message = "Created"),
         @ApiResponse(code = 401, message = "Unauthorized"),
         @ApiResponse(code = 403, message = "Forbidden"),
         @ApiResponse(code = 404, message = "Not Found") })
-    @RequestMapping(value = "/api/locations",
+    @RequestMapping(value = "/api/user-extras",
         produces = "*/*", 
         consumes = "application/json",
         method = RequestMethod.POST)
-    ResponseEntity<LocationDTO> createLocationUsingPOST(@ApiParam(value = "locationDTO" ,required=true )  @Valid @RequestBody LocationDTO locationDTO);
+    ResponseEntity<UserExtra> createUserExtraUsingPOST(@ApiParam(value = "userExtra" ,required=true )  @Valid @RequestBody UserExtra userExtra);
 
 
-    @ApiOperation(value = "deleteLocation", nickname = "deleteLocationUsingDELETE", notes = "", tags={ "location-resource", })
+    @ApiOperation(value = "deleteUserExtra", nickname = "deleteUserExtraUsingDELETE", notes = "", tags={ "user-extra-resource", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK"),
         @ApiResponse(code = 204, message = "No Content"),
         @ApiResponse(code = 401, message = "Unauthorized"),
         @ApiResponse(code = 403, message = "Forbidden") })
-    @RequestMapping(value = "/api/locations/{id}",
+    @RequestMapping(value = "/api/user-extras/{userEmail}",
         method = RequestMethod.DELETE)
-    ResponseEntity<Void> deleteLocationUsingDELETE(@ApiParam(value = "id",required=true) @PathVariable("id") Long id);
+    ResponseEntity<Void> deleteUserExtraUsingDELETE(@ApiParam(value = "userEmail",required=true) @PathVariable("userEmail") String userEmail);
 
 
-    @ApiOperation(value = "getAllLocations", nickname = "getAllLocationsUsingGET", notes = "", response = LocationDTO.class, responseContainer = "List", tags={ "location-resource", })
+    @ApiOperation(value = "getAllUserExtras", nickname = "getAllUserExtrasUsingGET", notes = "", response = UserExtra.class, responseContainer = "List", tags={ "user-extra-resource", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = LocationDTO.class, responseContainer = "List"),
+        @ApiResponse(code = 200, message = "OK", response = UserExtra.class, responseContainer = "List"),
         @ApiResponse(code = 401, message = "Unauthorized"),
         @ApiResponse(code = 403, message = "Forbidden"),
         @ApiResponse(code = 404, message = "Not Found") })
-    @RequestMapping(value = "/api/locations",
+    @RequestMapping(value = "/api/user-extras",
         produces = "*/*", 
         method = RequestMethod.GET)
-    ResponseEntity<List<LocationDTO>> getAllLocationsUsingGET(@ApiParam(value = "Page number of the requested page") @Valid @RequestParam(value = "page", required = false) Integer page,@ApiParam(value = "Size of a page") @Valid @RequestParam(value = "size", required = false) Integer size,@ApiParam(value = "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.") @Valid @RequestParam(value = "sort", required = false) List<String> sort);
+    ResponseEntity<List<UserExtra>> getAllUserExtrasUsingGET(@ApiParam(value = "eagerload", defaultValue = "false") @Valid @RequestParam(value = "eagerload", required = false, defaultValue="false") Boolean eagerload,@ApiParam(value = "Page number of the requested page") @Valid @RequestParam(value = "page", required = false) Integer page,@ApiParam(value = "Size of a page") @Valid @RequestParam(value = "size", required = false) Integer size,@ApiParam(value = "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.") @Valid @RequestParam(value = "sort", required = false) List<String> sort);
 
 
-    @ApiOperation(value = "getLocation", nickname = "getLocationUsingGET", notes = "", response = LocationDTO.class, tags={ "location-resource", })
+    @ApiOperation(value = "getUserExtra", nickname = "getUserExtraUsingGET", notes = "", response = UserExtra.class, tags={ "user-extra-resource", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = LocationDTO.class),
+        @ApiResponse(code = 200, message = "OK", response = UserExtra.class),
         @ApiResponse(code = 401, message = "Unauthorized"),
         @ApiResponse(code = 403, message = "Forbidden"),
         @ApiResponse(code = 404, message = "Not Found") })
-    @RequestMapping(value = "/api/locations/{id}",
+    @RequestMapping(value = "/api/user-extras/{userEmail}",
         produces = "*/*", 
         method = RequestMethod.GET)
-    ResponseEntity<LocationDTO> getLocationUsingGET(@ApiParam(value = "id",required=true) @PathVariable("id") Long id);
+    ResponseEntity<UserExtra> getUserExtraUsingGET(@ApiParam(value = "userEmail",required=true) @PathVariable("userEmail") String userEmail);
 
 
-    @ApiOperation(value = "updateLocation", nickname = "updateLocationUsingPUT", notes = "", response = LocationDTO.class, tags={ "location-resource", })
+    @ApiOperation(value = "updateUserExtra", nickname = "updateUserExtraUsingPUT", notes = "", response = UserExtra.class, tags={ "user-extra-resource", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = LocationDTO.class),
+        @ApiResponse(code = 200, message = "OK", response = UserExtra.class),
         @ApiResponse(code = 201, message = "Created"),
         @ApiResponse(code = 401, message = "Unauthorized"),
         @ApiResponse(code = 403, message = "Forbidden"),
         @ApiResponse(code = 404, message = "Not Found") })
-    @RequestMapping(value = "/api/locations",
+    @RequestMapping(value = "/api/user-extras",
         produces = "*/*", 
         consumes = "application/json",
         method = RequestMethod.PUT)
-    ResponseEntity<LocationDTO> updateLocationUsingPUT(@ApiParam(value = "locationDTO" ,required=true )  @Valid @RequestBody LocationDTO locationDTO);
+    ResponseEntity<UserExtra> updateUserExtraUsingPUT(@ApiParam(value = "userExtra" ,required=true )  @Valid @RequestBody UserExtra userExtra);
 
 }

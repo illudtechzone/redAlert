@@ -1,6 +1,5 @@
 package com.illud.redalert.web.rest;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +7,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Order;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,28 +17,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.illud.redalert.service.UserService;
-
-import com.illud.redalert.web.rest.errors.BadRequestAlertException;
-import com.illud.redalert.web.rest.util.HeaderUtil;
-import com.illud.redalert.web.rest.util.PaginationUtil;
-
 import com.illud.redalert.client.redalertmicroservice.api.CommentResourceApi;
-import com.illud.redalert.client.redalertmicroservice.api.FriendResourceApi;
 import com.illud.redalert.client.redalertmicroservice.api.LocationResourceApi;
 import com.illud.redalert.client.redalertmicroservice.api.PostResourceApi;
-import com.illud.redalert.client.redalertmicroservice.model.*;
+import com.illud.redalert.client.redalertmicroservice.model.CommentDTO;
+import com.illud.redalert.client.redalertmicroservice.model.LocationDTO;
+import com.illud.redalert.client.redalertmicroservice.model.PostDTO;
+import com.illud.redalert.web.rest.errors.BadRequestAlertException;
 @RestController
-@RequestMapping("/apig")
+@RequestMapping("/api")
 public class RedAlertAggregateResource {
 	
 	private final Logger log = LoggerFactory.getLogger(RedAlertAggregateResource.class);
 	
 	private static final String ENTITY_NAME = "redAlertFriend";
 	
+
 	@Autowired
 	private LocationResourceApi locationResourceApi;
+
 	
 	@Autowired
 	private PostResourceApi postResourceApi;

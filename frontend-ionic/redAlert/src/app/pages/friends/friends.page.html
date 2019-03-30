@@ -10,8 +10,8 @@
                         <ion-avatar slot="start">
                             <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
                         </ion-avatar>
-                        <ion-label>{{friend.username}}</ion-label>
-                        <ion-button color="danger" shape="round"><ion-icon name="remove" slot="icon-only"></ion-icon></ion-button>
+                        <ion-label>{{friend.firstName+" "+friend.lastName}}</ion-label>
+                        <ion-button color="danger" shape="round" (click)="unFriend(friend)" ><ion-icon name="remove" slot="icon-only"></ion-icon></ion-button>
                     </ion-item>
                 </ion-card>
             </ion-col>
@@ -22,8 +22,8 @@
                         <ion-avatar slot="start">
                             <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
                         </ion-avatar>
-                        <ion-label>{{other.username}}</ion-label>
-                        <ion-button color="danger" shape="round"><ion-icon name="add" slot="icon-only"></ion-icon></ion-button>
+                        <ion-label>{{other.firstName+" "+other.lastName}}</ion-label>
+                        <ion-button color="danger" shape="round" (click)="addFriend(other)" ><ion-icon name="add" slot="icon-only"></ion-icon></ion-button>
                     </ion-item>
                 </ion-card>
             </ion-col>

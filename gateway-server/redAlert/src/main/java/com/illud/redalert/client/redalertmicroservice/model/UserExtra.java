@@ -3,7 +3,7 @@ package com.illud.redalert.client.redalertmicroservice.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.illud.redalert.client.redalertmicroservice.model.FriendDTO;
+import com.illud.redalert.client.redalertmicroservice.model.FriendsList;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -13,30 +13,30 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * FriendDTO
+ * UserExtra
  */
 @Validated
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-03-27T11:35:27.177+05:30[Asia/Kolkata]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-03-29T19:09:02.345873+05:30[Asia/Calcutta]")
 
-public class FriendDTO   {
+public class UserExtra   {
   @JsonProperty("friends")
   @Valid
-  private List<FriendDTO> friends = null;
+  private List<FriendsList> friends = null;
 
   @JsonProperty("id")
   private Long id = null;
 
-  @JsonProperty("userId")
-  private String userId = null;
+  @JsonProperty("userEmail")
+  private String userEmail = null;
 
-  public FriendDTO friends(List<FriendDTO> friends) {
+  public UserExtra friends(List<FriendsList> friends) {
     this.friends = friends;
     return this;
   }
 
-  public FriendDTO addFriendsItem(FriendDTO friendsItem) {
+  public UserExtra addFriendsItem(FriendsList friendsItem) {
     if (this.friends == null) {
-      this.friends = new ArrayList<FriendDTO>();
+      this.friends = new ArrayList<FriendsList>();
     }
     this.friends.add(friendsItem);
     return this;
@@ -50,15 +50,15 @@ public class FriendDTO   {
 
   @Valid
 
-  public List<FriendDTO> getFriends() {
+  public List<FriendsList> getFriends() {
     return friends;
   }
 
-  public void setFriends(List<FriendDTO> friends) {
+  public void setFriends(List<FriendsList> friends) {
     this.friends = friends;
   }
 
-  public FriendDTO id(Long id) {
+  public UserExtra id(Long id) {
     this.id = id;
     return this;
   }
@@ -78,24 +78,24 @@ public class FriendDTO   {
     this.id = id;
   }
 
-  public FriendDTO userId(String userId) {
-    this.userId = userId;
+  public UserExtra userEmail(String userEmail) {
+    this.userEmail = userEmail;
     return this;
   }
 
   /**
-   * Get userId
-   * @return userId
+   * Get userEmail
+   * @return userEmail
   **/
   @ApiModelProperty(value = "")
 
 
-  public String getUserId() {
-    return userId;
+  public String getUserEmail() {
+    return userEmail;
   }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
+  public void setUserEmail(String userEmail) {
+    this.userEmail = userEmail;
   }
 
 
@@ -107,25 +107,25 @@ public class FriendDTO   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FriendDTO friendDTO = (FriendDTO) o;
-    return Objects.equals(this.friends, friendDTO.friends) &&
-        Objects.equals(this.id, friendDTO.id) &&
-        Objects.equals(this.userId, friendDTO.userId);
+    UserExtra userExtra = (UserExtra) o;
+    return Objects.equals(this.friends, userExtra.friends) &&
+        Objects.equals(this.id, userExtra.id) &&
+        Objects.equals(this.userEmail, userExtra.userEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(friends, id, userId);
+    return Objects.hash(friends, id, userEmail);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FriendDTO {\n");
+    sb.append("class UserExtra {\n");
     
     sb.append("    friends: ").append(toIndentedString(friends)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
     sb.append("}");
     return sb.toString();
   }
