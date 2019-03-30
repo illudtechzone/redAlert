@@ -9,8 +9,7 @@ import { UserDTO } from 'src/app/shared/gateway-api/models';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  user: UserDTO = {
-  };
+  user: UserDTO = {};
   constructor(private userResource: UserResourceService, private  currentUser: CurrentUserService) { }
 
   async ngOnInit() {

@@ -156,6 +156,42 @@ class UserResourceService extends __BaseService {
   }
 
   /**
+   * @param email email
+   * @return OK
+   */
+  getUserByEmailUsingGETResponse(email: string): __Observable<__StrictHttpResponse<UserDTO>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/api/users/email/${email}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<UserDTO>;
+      })
+    );
+  }
+  /**
+   * @param email email
+   * @return OK
+   */
+  getUserByEmailUsingGET(email: string): __Observable<UserDTO> {
+    return this.getUserByEmailUsingGETResponse(email).pipe(
+      __map(_r => _r.body as UserDTO)
+    );
+  }
+
+  /**
    * @param params The `UserResourceService.GetSuggestionsUsingGETParams` containing the following parameters:
    *
    * - `sort`: Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
