@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -110,6 +111,11 @@ public class UserResource {
         return ResponseUtil.wrapOrNotFound(
             userService.getUserWithAuthoritiesByLogin(login)
                 .map(UserDTO::new));
+    }
+    
+    @GetMapping("/users/{email}")
+    public ResponseEntity<UserDTO> getUserByEmail(@PathVariable String email) {
+    	return ResponseUtil.wrapOrNotFound(Optional.of(userService.getUserByEmail(email)));
     }
     
     @GetMapping("/users/friends-of/{email}")
