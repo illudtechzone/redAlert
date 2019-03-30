@@ -7,9 +7,11 @@ import com.illud.redalert.repository.AuthorityRepository;
 import com.illud.redalert.repository.UserRepository;
 import com.illud.redalert.security.SecurityUtils;
 import com.illud.redalert.service.dto.UserDTO;
+import com.illud.redalert.service.mapper.UserMapper;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -40,12 +42,15 @@ public class UserService {
 
     private final AuthorityRepository authorityRepository;
 
+    private final UserMapper userMapper;
+
     private final CacheManager cacheManager;
 
-    public UserService(UserRepository userRepository, AuthorityRepository authorityRepository, CacheManager cacheManager) {
+    public UserService(UserRepository userRepository, AuthorityRepository authorityRepository, CacheManager cacheManager, UserMapper userMapper) {
         this.userRepository = userRepository;
         this.authorityRepository = authorityRepository;
         this.cacheManager = cacheManager;
+        this.userMapper=userMapper;
     }
 
     /**
@@ -69,6 +74,10 @@ public class UserService {
                 this.clearUserCaches(user);
                 log.debug("Changed Information for User: {}", user);
             });
+    }
+    
+    public UserDTO getUserByEmail(String email) {
+    	 return userRepository.findOneByEmailIgnoreCase(email).map(userMapper::userToUserDTO).orElse(null);
     }
 
     /**

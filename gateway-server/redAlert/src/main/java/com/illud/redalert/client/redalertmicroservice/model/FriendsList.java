@@ -10,22 +10,19 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * LocationDTO
+ * FriendsList
  */
 @Validated
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-03-29T19:09:02.345873+05:30[Asia/Calcutta]")
 
-public class LocationDTO   {
+public class FriendsList   {
   @JsonProperty("id")
   private Long id = null;
 
-  @JsonProperty("latitude")
-  private String latitude = null;
+  @JsonProperty("userEmail")
+  private String userEmail = null;
 
-  @JsonProperty("longitude")
-  private String longitude = null;
-
-  public LocationDTO id(Long id) {
+  public FriendsList id(Long id) {
     this.id = id;
     return this;
   }
@@ -45,44 +42,24 @@ public class LocationDTO   {
     this.id = id;
   }
 
-  public LocationDTO latitude(String latitude) {
-    this.latitude = latitude;
+  public FriendsList userEmail(String userEmail) {
+    this.userEmail = userEmail;
     return this;
   }
 
   /**
-   * Get latitude
-   * @return latitude
+   * Get userEmail
+   * @return userEmail
   **/
   @ApiModelProperty(value = "")
 
 
-  public String getLatitude() {
-    return latitude;
+  public String getUserEmail() {
+    return userEmail;
   }
 
-  public void setLatitude(String latitude) {
-    this.latitude = latitude;
-  }
-
-  public LocationDTO longitude(String longitude) {
-    this.longitude = longitude;
-    return this;
-  }
-
-  /**
-   * Get longitude
-   * @return longitude
-  **/
-  @ApiModelProperty(value = "")
-
-
-  public String getLongitude() {
-    return longitude;
-  }
-
-  public void setLongitude(String longitude) {
-    this.longitude = longitude;
+  public void setUserEmail(String userEmail) {
+    this.userEmail = userEmail;
   }
 
 
@@ -94,25 +71,23 @@ public class LocationDTO   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LocationDTO locationDTO = (LocationDTO) o;
-    return Objects.equals(this.id, locationDTO.id) &&
-        Objects.equals(this.latitude, locationDTO.latitude) &&
-        Objects.equals(this.longitude, locationDTO.longitude);
+    FriendsList friendsList = (FriendsList) o;
+    return Objects.equals(this.id, friendsList.id) &&
+        Objects.equals(this.userEmail, friendsList.userEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, latitude, longitude);
+    return Objects.hash(id, userEmail);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LocationDTO {\n");
+    sb.append("class FriendsList {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
-    sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
+    sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
     sb.append("}");
     return sb.toString();
   }
