@@ -113,7 +113,7 @@ public class UserResource {
                 .map(UserDTO::new));
     }
     
-    @GetMapping("/users/{email}")
+    @GetMapping("/users/email/{email}")
     public ResponseEntity<UserDTO> getUserByEmail(@PathVariable String email) {
     	return ResponseUtil.wrapOrNotFound(Optional.of(userService.getUserByEmail(email)));
     }
